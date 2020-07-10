@@ -16,8 +16,8 @@ public class WeatherService {
 	
 	
 	public Weather fetchWeatherTodayByLattLong(String latitude, String longitude) {
-		if (StringUtils.isEmpty(latitude) || StringUtils.isEmpty(latitude)) {
-			throw new IllegalArgumentException("latitude and latitude cannot be null or empty.");
+		if (StringUtils.isEmpty(latitude) || StringUtils.isEmpty(longitude)) {
+			throw new IllegalArgumentException("latitude and longitude cannot be null or empty.");
 		}
 		
 		List<Weather> weathers = client.findByLatLong(String.format("%s,%s", latitude, longitude)); //Exec chamada na API buscando por LAT e LONG
