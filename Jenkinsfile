@@ -14,7 +14,7 @@ pipeline {
 	stage('SonarQube analysis') {
 		steps {
 			withSonarQubeEnv('sonarqube') {
-				sh 'mvn sonar:sonar -Dsonar.projectKey=desafio-allan-uol -Dsonar.sources=./src -Dsonar.host.url=http://192.168.0.117:9001 -Dsonar.login=6bb8679322478dd970483ed128f870ec68eb8dc4'
+				sh 'mvn sonar:sonar -Dsonar.projectKey=desafio-allan-uol -Dsonar.host.url=http://192.168.0.117:9001 -Dsonar.login=6bb8679322478dd970483ed128f870ec68eb8dc4'
 			}
 		}
 	}
@@ -22,7 +22,7 @@ pipeline {
 	stage('SonarQube Quality Gate') {
 	    steps {
 		script {
-		    sleep(15)
+		    sleep(20)
 		    timeout(time: 1, unit: 'HOURS') {
 			def qg = waitForQualityGate()
 			if (qg.status != 'OK') {
