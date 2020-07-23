@@ -5,12 +5,6 @@ pipeline {
 		jdk 'jdk8'
     }
     stages {
-        stage ('Pool SCM') {
-            steps {
-                git 'https://github.com/juniorccna/desafio-uol.git'
-            }
-        }
-    stages {
         stage ('Build') {
             steps {
                 sh 'mvn clean package -Dmaven.test.skip=true'
